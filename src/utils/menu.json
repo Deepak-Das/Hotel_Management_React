@@ -1,0 +1,74 @@
+[
+  {
+    "menuName": "Hotel",
+    "menuType": "Main",
+    "link": null,
+    "menuIcon": "mdIcon.MdAddBox ",
+    "menuArea": "DashBoard",
+    "children": [
+      {
+        "menuName": "Overview",
+        "menuType": "Sub",
+        "link": "/overview",
+        "menuIcon": null,
+        "menuArea": "DashBoard"
+      },
+      {
+        "menuName": "All Branch",
+        "menuType": "Sub",
+        "link": "/all-branch",
+        "menuIcon": null,
+        "menuArea": "DashBoard"
+      }
+    ]
+  },
+
+  {
+    "menuName": "Booking",
+    "menuType": "Main",
+    "link": null,
+    "menuIcon": "mdIcon.MdOutlineLibraryBooks ",
+    "menuArea": "DashBoard",
+
+    "children": [
+      {
+        "menuName": "Add Booking",
+        "menuType": "Sub",
+        "link": "/add-booking",
+        "menuIcon": null,
+        "menuArea": "DashBoard"
+      },
+      {
+        "menuName": "View Booking",
+        "menuType": "Sub",
+        "link": "/view-booking",
+        "menuIcon": null,
+        "menuArea": "DashBoard"
+      }
+    ]
+  },
+  {
+    "menuName": "Room",
+    "menuType": "Main",
+    "link": null,
+    "menuIcon": "mdIcon.MdBed ",
+    "menuArea": "DashBoard",
+
+    "children": [
+      {
+        "menuName": "Add Room",
+        "menuType": "Sub",
+        "link": "/add-room",
+        "menuIcon": null,
+        "menuArea": "DashBoard"
+      },
+      {
+        "menuName": "View Room",
+        "menuType": "Sub",
+        "link": "/view-room",
+        "menuIcon": null,
+        "menuArea": "DashBoard"
+      }
+    ]
+  }
+]

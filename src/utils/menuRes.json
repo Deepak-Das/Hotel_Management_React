@@ -1,0 +1,170 @@
+[
+    {
+        "menuId": 152,
+        "menuName": "Hotel",
+        "menuType": "Main",
+        "menuIcon": "mdIcon.MdAddBox ",
+        "menuArea": "DashBoard",
+        "children": [
+            {
+                "menuId": 153,
+                "menuName": "Overview",
+                "menuType": "Sub",
+                "menuIcon": null,
+                "menuArea": "DashBoard",
+                "children": [],
+                "link": null,
+                "roleId": 1,
+                "EmpId": 1
+            },
+            {
+                "menuId": 154,
+                "menuName": "All Branch",
+                "menuType": "Sub",
+                "menuIcon": null,
+                "menuArea": "DashBoard",
+                "children": [],
+                "link": null,
+                "roleId": 1,
+                "EmpId": 1
+            }
+        ],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 153,
+        "menuName": "Overview",
+        "menuType": "Sub",
+        "menuIcon": null,
+        "menuArea": "DashBoard",
+        "children": [],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 154,
+        "menuName": "All Branch",
+        "menuType": "Sub",
+        "menuIcon": null,
+        "menuArea": "DashBoard",
+        "children": [],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 155,
+        "menuName": "Booking",
+        "menuType": "Main",
+        "menuIcon": "mdIcon.MdOutlineLibraryBooks ",
+        "menuArea": "DashBoard",
+        "children": [
+            {
+                "menuId": 156,
+                "menuName": "Add Booking",
+                "menuType": "Sub",
+                "menuIcon": null,
+                "menuArea": "DashBoard",
+                "children": [],
+                "link": null,
+                "roleId": 1,
+                "EmpId": 1
+            },
+            {
+                "menuId": 157,
+                "menuName": "View Booking",
+                "menuType": "Sub",
+                "menuIcon": null,
+                "menuArea": "DashBoard",
+                "children": [],
+                "link": null,
+                "roleId": 1,
+                "EmpId": 1
+            }
+        ],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 156,
+        "menuName": "Add Booking",
+        "menuType": "Sub",
+        "menuIcon": null,
+        "menuArea": "DashBoard",
+        "children": [],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 157,
+        "menuName": "View Booking",
+        "menuType": "Sub",
+        "menuIcon": null,
+        "menuArea": "DashBoard",
+        "children": [],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 158,
+        "menuName": "Room",
+        "menuType": "Main",
+        "menuIcon": "mdIcon.MdBed ",
+        "menuArea": "DashBoard",
+        "children": [
+            {
+                "menuId": 159,
+                "menuName": "Add Room",
+                "menuType": "Sub",
+                "menuIcon": null,
+                "menuArea": "DashBoard",
+                "children": [],
+                "link": null,
+                "roleId": 1,
+                "EmpId": 1
+            },
+            {
+                "menuId": 160,
+                "menuName": "View Room",
+                "menuType": "Sub",
+                "menuIcon": null,
+                "menuArea": "DashBoard",
+                "children": [],
+                "link": null,
+                "roleId": 1,
+                "EmpId": 1
+            }
+        ],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 159,
+        "menuName": "Add Room",
+        "menuType": "Sub",
+        "menuIcon": null,
+        "menuArea": "DashBoard",
+        "children": [],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    },
+    {
+        "menuId": 160,
+        "menuName": "View Room",
+        "menuType": "Sub",
+        "menuIcon": null,
+        "menuArea": "DashBoard",
+        "children": [],
+        "link": null,
+        "roleId": 1,
+        "EmpId": 1
+    }
+]
