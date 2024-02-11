@@ -1,30 +1,50 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "./views/DashboardLayout";
+import NotFoundPage from "./views/NotFoundPage";
+import TableComp from "./components/TableComp";
+import AllBranchPage from "./views/AllBranchPage";
+import { ConfigProvider } from "antd";
 
-import { Layout, Flex, ConfigProvider, Button } from "antd";
-
-import { Sidebar2 } from "./components/Sidebar2";
-
-const { Header, Content } = Layout;
-
-
-const layoutStyle: React.CSSProperties = {
-  height: '100vh'
-};
-
+const routers = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>home</div>,
+  },
+  {
+    path: "dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "overview",
+        element: <div>Overview</div>,
+      },
+      {
+        path: "all-branch",
+        element: <AllBranchPage />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  },
+]);
 
 function App() {
   return (
-    <Layout style={layoutStyle}>
-    <Sidebar2></Sidebar2>
-    <Layout style={layoutStyle}>
-      <Header >
-        header
-      </Header>
-      <Content >Content</Content>
-    </Layout>
-  </Layout>
+    <ConfigProvider
+      theme={{
+        components: {
+          Menu: {
+            colorText: "#5e84a5",
+            fontSize: 18,
+          
+          },
+        },
+      }}
+    >
+      <RouterProvider router={routers} />
+    </ConfigProvider>
   );
 }
 
