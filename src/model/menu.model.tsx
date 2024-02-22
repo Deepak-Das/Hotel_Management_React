@@ -1,10 +1,6 @@
-import * as mdIcon from "react-icons/md";
-import * as faIcon from "react-icons/fa";
-import * as ioIcon from "react-icons/io";
 import { Key } from "react";
-import { icons } from "antd/es/image/PreviewGroup";
 import { IconType } from "react-icons";
-import Icons from "../common/Icons";
+import DynamicIcon from "../common/DynamicIcon";
 
 // Define TypeScript interfaces for the data structure
 export interface MenuRes {
@@ -26,7 +22,6 @@ export interface MenuItem {
   children?: MenuItem[] | null;
 }
 
-const Icon = mdIcon["MdOutlineHomeWork"];
 
 // Function to map the Axios response to the desired format
 export function mapMenuResponseToItems(response: MenuRes[]): MenuItem[] {
@@ -35,16 +30,9 @@ export function mapMenuResponseToItems(response: MenuRes[]): MenuItem[] {
     key: menu.link == undefined ? menu.menuId : menu.link,
     icon: menu.menuIcon ? (
       <div>
-        <Icons name={menu.menuIcon as keyof IconType} />
+        <DynamicIcon name={menu.menuIcon as keyof IconType} />
       </div>
     ) : undefined,
-    // icon:
-    //   menu.menuIcon != undefined ? (
-    //     <i
-    //       className={`bx ${menu.menuIcon} bx-sm bx-tada-hover`}
-    //       style={{ color: "#6d706e" }}
-    //     ></i>
-    //   ) : undefined,
     children:
       menu.children?.length == 0
         ? undefined

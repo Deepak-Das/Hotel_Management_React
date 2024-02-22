@@ -4,21 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 *,
 html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
 }
 body {
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
 }
 
 /* Scrollbar Styling */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0.3rem;
 }
 
@@ -32,4 +30,4 @@ body {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #818cf8;
-}
+} */

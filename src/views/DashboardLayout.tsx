@@ -14,7 +14,7 @@ const DashboardLayout = () => {
         <Layout>
           <Header />
           <Content className="tw-p-4">
-            <div className="tw-h-full tw-bg-white">
+            <div className="tw-h-full tw-overflow-y-auto">
               <Outlet />
             </div>
           </Content>

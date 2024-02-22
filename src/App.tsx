@@ -5,6 +5,7 @@ import TableComp from "./components/TableComp";
 import AllBranchPage from "./views/AllBranchPage";
 import { ConfigProvider } from "antd";
 
+
 const routers = createBrowserRouter([
   {
     path: "/",
@@ -31,21 +32,7 @@ const routers = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Menu: {
-            colorText: "#5e84a5",
-            fontSize: 18,
-          
-          },
-        },
-      }}
-    >
-      <RouterProvider router={routers} />
-    </ConfigProvider>
-  );
+  return <RouterProvider router={routers} />;
 }
 
 export default App;

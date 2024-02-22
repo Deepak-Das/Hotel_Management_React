@@ -11,9 +11,6 @@ import { MenuItem, MenuRes, mapMenuResponseToItems } from "../model/menu.model";
 import { useAppDispatch, useAppSelector } from "../state/hook";
 import { toggle } from "../state/slice-creater/sideMenu";
 import {
-  Navigate,
-  Router,
-  createBrowserRouter,
   useNavigate,
 } from "react-router-dom";
 

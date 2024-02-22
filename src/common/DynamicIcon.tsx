@@ -3,7 +3,7 @@ import type { IconType } from "react-icons";
 
 import * as mdIcon from "react-icons/md";
 
-const Icons = ({ name }: { name: keyof IconType }) => {
+const DynamicIcon = ({ name }: { name: keyof IconType }) => {
   const reactIcon: IconType = mdIcon[name];
   // if (name.startsWith("fa")) {
   //   reactIcon = faIcon[name];
@@ -15,4 +15,4 @@ const Icons = ({ name }: { name: keyof IconType }) => {
   return React.createElement(reactIcon);
 };
 
-export default Icons;
+export default DynamicIcon;

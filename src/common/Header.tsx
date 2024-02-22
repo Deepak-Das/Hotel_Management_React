@@ -47,8 +47,11 @@ const Header = () => {
             <BiBell className="tw-size-6 tw-text-[#5e84a5] " />
             <span className="tw-absolute tw-right-[.25rem]  tw-top-1 tw-aspect-square tw-rounded-full tw-bg-[#09C2DE] tw-p-[.20rem] tw-text-[.70rem] tw-text-white"></span>
           </div>
+
+          {/* this is profile dialoge */}
+
           <div
-            className={` tw-absolute tw-right-6 tw-top-16 tw-flex tw-flex-col tw-rounded-t-lg tw-border-[1px] tw-border-t-4 tw-border-t-indigo-400 tw-bg-gray-100  tw-transition-all tw-duration-150 tw-ease-in ${!toggleProfile ? "tw-opacity-0" : "tw-opacity-1"}`}
+            className={` tw-absolute tw-right-6 tw-top-16 tw-flex tw-flex-col tw-rounded-t-lg tw-border-[1px] tw-border-t-4 tw-border-t-indigo-400 tw-bg-gray-100  tw-transition-all tw-duration-150 tw-ease-in ${!toggleProfile ? "-tw-z-10 tw-opacity-0" : "tw-opacity-1"}`}
           >
             <div className="tw-mx-12 tw-flex tw-items-center tw-justify-center tw-gap-6 tw-py-2">
               <img
