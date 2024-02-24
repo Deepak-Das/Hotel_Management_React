@@ -1,0 +1,68 @@
+$label: #5e84a5;
+$primaryColor: #8f8aff;
+$secondaryColor: #ffa11d; // Example of a complementary color
+$tertiaryColor: #c1c1ff;
+$highLight: #09c2de;
+$inputBg: rgba(94, 132, 165, 0.137);
+$text-color: #1d4d77;
+
+.container {
+  background: white;
+  padding: 1rem;
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $primaryColor;
+    margin-bottom: 2rem;
+
+    position: relative;
+    &::after {
+      content: "";
+      width: 12rem;
+      height: 0.1em;
+
+      /* background-color: var(--c-title-underline-color); */
+      background: $tertiaryColor;
+
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+    }
+  }
+
+  .form {
+    &_card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      // margin: 0 1rem;
+
+      .form_box {
+        &-label {
+          display: flex;
+          flex-direction: column;
+          font-weight: 500;
+          color: $label;
+          width: 260px;
+        }
+        &-input {
+          background: $inputBg;
+          border: 2px solid $label;
+          border-radius: 0.3rem;
+          color: $text-color;
+          padding: 0.16rem;
+          width: 100%;
+          margin-top: 0.2rem;
+
+          &:focus,
+          :active {
+            outline: none;
+            border: 2px solid $primaryColor;
+          }
+        }
+      }
+    }
+  }
+}

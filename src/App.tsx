@@ -1,10 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "./views/DashboardLayout";
 import NotFoundPage from "./views/NotFoundPage";
-import TableComp from "./components/TableComp";
 import AllBranchPage from "./views/AllBranchPage";
-import { ConfigProvider } from "antd";
-
+import AddBranchPage from "./views/AddBranchPage";
 
 const routers = createBrowserRouter([
   {
@@ -22,6 +20,10 @@ const routers = createBrowserRouter([
       {
         path: "all-branch",
         element: <AllBranchPage />,
+      },
+      {
+        path: "add-branch",
+        element: <AddBranchPage />,
       },
     ],
   },
