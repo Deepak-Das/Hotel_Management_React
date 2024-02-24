@@ -1,98 +1,164 @@
-import React from "react";
-import { Button, Space, Table, Tag } from "antd";
-import type { TableProps } from "antd";
+import {
+  SortingState,
+  flexRender,
+  getCoreRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
-  check?: String;
+import "../styles/allBranchPage.scss";
+import { useState } from "react";
+import { BranchModel } from "../model/branch.model";
+import { Pagination, PaginationProps } from "antd";
+import { SetURLSearchParams } from "react-router-dom";
+import Loading from "../common/Loding";
+import Error from "../common/Error";
+
+interface Props {
+  isLoading: Boolean;
+  isError: Boolean;
+  data: BranchModel | any;
+  columns: any;
+  errorMsg: string | undefined;
+  totalElements: number;
+  pageNo: number;
+  size: number;
+  setPageParms: SetURLSearchParams;
 }
 
-const columns: TableProps<DataType>["columns"] = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-  {
-    title: "Delete",
-    key: "delete",
-    render: (_, record) => (
-      <Button type="primary">{"Delete" + record.name}</Button>
-    ),
-  },
-];
+const TableComp = ({
+  isLoading,
+  isError,
+  data,
+  columns,
+  errorMsg,
+  totalElements,
+  pageNo,
+  size,
+  setPageParms,
+}: Props) => {
+  const [sorting, setSorting] = useState<SortingState>([]);
 
-const data: DataType[] = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
+  const onShowSizeChange: PaginationProps["onShowSizeChange"] = (
+    current = pageNo,
+    pageSize = size,
+  ) => {
+    // console.log(current, pageSize);
+    setPageParms({
+      PageSize: pageSize.toString(),
+      Sort: "ACS",
+    });
+  };
 
-const TableComp: React.FC = () => (
-  <Table  columns={columns} dataSource={data} />
-);
+  const onPageChange: PaginationProps["onShowSizeChange"] = (
+    page = pageNo,
+    pageSize = size,
+  ) => {
+    console.log(page, pageSize);
+    page = page - 1;
+    setPageParms({
+      PageNo: page.toString(),
+      PageSize: pageSize.toString(),
+      Sort: "ACS",
+    });
+  };
+
+  const table = useReactTable({
+    data: data?.content ?? [],
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    state: {
+      sorting,
+    },
+    onSortingChange: setSorting,
+  });
+
+  if (isLoading) {
+    return (
+      <Loading/>
+    );
+  } else if (isError) {
+    return (
+      <Error errorMsg={errorMsg}/>
+    );
+  }
+
+  return (
+    <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-bg-white">
+      <div className="   tw-p-4">
+        <div className=" tw-h-full tw-overflow-x-auto tw-rounded-t-lg tw-border ">
+          <table className="rtl:tw-text-right">
+            <thead className="tw-uppercase">
+              {table.getHeaderGroups().map((headerGroup) => (
+                <tr
+                  className="tw-bg-indigo-400
+                "
+                  key={headerGroup.id}
+                >
+                  {headerGroup.headers.map((header) => (
+                    <th
+                      className=" tw-px-6 tw-py-3 tw-text-sm tw-font-normal tw-text-white"
+                      key={header.id}
+                    >
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.map((row, i) => (
+                <tr
+                  className={`tw-cursor-pointer tw-border-b tw-text-sm 
+                tw-text-textColor hover:tw-bg-indigo-50`}
+                  key={row.id}
+                >
+                  {row.getVisibleCells().map((cell, i) => (
+                    <td className={` tw-px-6 tw-py-3`} key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              {table.getFooterGroups().map((footerGroup) => (
+                <tr key={footerGroup.id}>
+                  {footerGroup.headers.map((header) => (
+                    <th key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.footer,
+                            header.getContext(),
+                          )}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <Pagination
+        showSizeChanger
+        onShowSizeChange={onShowSizeChange}
+        defaultCurrent={pageNo}
+        total={totalElements}
+        defaultPageSize={size}
+        onChange={onPageChange}
+      />
+    </div>
+  );
+};
 
 export default TableComp;

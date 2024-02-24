@@ -9,12 +9,12 @@ const { Content } = Layout;
 const DashboardLayout = () => {
   return (
     <>
-      <Layout>
+      <Layout hasSider>
         <Sidebar></Sidebar>
         <Layout>
           <Header />
-          <Content className="tw-p-4">
-            <div className="tw-h-full tw-overflow-y-auto">
+          <Content className="tw-h-full tw-overflow-y-auto tw-p-4">
+            <div className="">
               <Outlet />
             </div>
           </Content>

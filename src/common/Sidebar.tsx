@@ -10,14 +10,19 @@ import axios from "../services/axios";
 import { MenuItem, MenuRes, mapMenuResponseToItems } from "../model/menu.model";
 import { useAppDispatch, useAppSelector } from "../state/hook";
 import { toggle } from "../state/slice-creater/sideMenu";
-import {
-  useNavigate,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const { Sider } = Layout;
 
 const sidebar: CSSProperties = {
   width: "100%",
+  // overflow: "auto",
+  height: "100vh",
+  position: "sticky",
+  left: 0,
+  top: 0,
+  bottom: 0,
+  // zIndex: 20,
 };
 
 export const Sidebar = () => {
@@ -38,7 +43,7 @@ export const Sidebar = () => {
     <Sider
       collapsed={collapsed}
       style={sidebar}
-      className="tw-border-r- tw-h-screen tw-overflow-auto tw-border-r-[1px] tw-shadow-lg"
+      className=" tw-overflow-auto tw-border-r-[1px] tw-shadow-lg"
       theme="light"
       width={220}
     >

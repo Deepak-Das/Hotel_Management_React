@@ -16,7 +16,7 @@ const Header = () => {
   const [toggleProfile, setToggleProfile] = useState(false);
   return (
     <>
-      <header className="tw-relative tw-flex tw-items-center tw-justify-end tw-gap-4 tw-bg-[#FFFFFF] tw-px-8 tw-py-4">
+      <header className=" tw-sticky tw-top-0  tw-flex tw-items-center tw-justify-end tw-gap-4 tw-bg-[#FFFFFF] tw-px-8 tw-py-4">
         <img
           className="tw-size-8 tw-rounded-full  tw-border"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_India.png/800px-Flag_of_India.png?20230815162632"
@@ -51,7 +51,7 @@ const Header = () => {
           {/* this is profile dialoge */}
 
           <div
-            className={` tw-absolute tw-right-6 tw-top-16 tw-flex tw-flex-col tw-rounded-t-lg tw-border-[1px] tw-border-t-4 tw-border-t-indigo-400 tw-bg-gray-100  tw-transition-all tw-duration-150 tw-ease-in ${!toggleProfile ? "-tw-z-10 tw-opacity-0" : "tw-opacity-1"}`}
+            className={` tw-absolute tw-right-6 tw-top-16 tw-flex tw-flex-col tw-rounded-t-lg tw-border-[1px] tw-border-t-4 tw-border-t-indigo-400 tw-bg-gray-100  tw-transition-all tw-duration-150 tw-ease-in ${!toggleProfile ? "tw-hidden tw-opacity-0" : "tw-opacity-1"}`}
           >
             <div className="tw-mx-12 tw-flex tw-items-center tw-justify-center tw-gap-6 tw-py-2">
               <img
