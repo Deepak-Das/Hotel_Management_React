@@ -2,6 +2,8 @@ $label: #5e84a5;
 $primaryColor: #8f8aff;
 $secondaryColor: #ffa11d; // Example of a complementary color
 $tertiaryColor: #c1c1ff;
+$tertiaryColorDull: rgba(194, 194, 255, 0.42);
+
 $highLight: #09c2de;
 $inputBg: rgba(94, 132, 165, 0.137);
 $text-color: #1d4d77;
@@ -31,38 +33,83 @@ $text-color: #1d4d77;
     }
   }
 
-  .form {
-    &_card {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-      // margin: 0 1rem;
+  // .form {
+  //   &_card {
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     // justify-content: space-between;
+  //     // gap: 5rem;
+  //     // margin: 0 1rem;
+  //   }
+  // }
+}
 
-      .form_box {
-        &-label {
-          display: flex;
-          flex-direction: column;
-          font-weight: 500;
-          color: $label;
-          width: 260px;
-        }
-        &-input {
-          background: $inputBg;
-          border: 2px solid $label;
-          border-radius: 0.3rem;
-          color: $text-color;
-          padding: 0.16rem;
-          width: 100%;
-          margin-top: 0.2rem;
+.form_box {
+  position: relative;
+  width: 300px;
+  margin: 1rem 1rem;
+  margin-right: 2.5rem;
 
-          &:focus,
-          :active {
-            outline: none;
-            border: 2px solid $primaryColor;
-          }
-        }
-      }
+  &-label {
+    display: flex;
+    flex-direction: column;
+    // font-weight: 500;
+    color: $label;
+    // width: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 0.7rem;
+
+    transition: all;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+
+  &-input {
+    // background: $inputBg;
+    border-bottom: 1px solid $label;
+    // border-radius: 0.3rem;
+    color: $text-color;
+    padding: 0.16rem;
+    width: 100%;
+    font-size: 0.9rem;
+    // margin-top: 0.2rem;
+    // font-weight:;
+    cursor: pointer;
+
+    &:focus,
+    &:active,
+    &:valid {
+      outline: none;
+      border-bottom: 2px solid $primaryColor;
+      background: $tertiaryColorDull;
+    }
+
+    &:focus + span,
+    &:valid + span {
+      top: -20px;
+      font-size: 0.9rem;
+      color: $primaryColor;
     }
   }
+}
+
+.btn_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .btn {
+    background: $primaryColor;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: white;
+    font-weight: 500;
+  }
+}
+
+input[type="date"] {
 }

@@ -16,7 +16,7 @@ const Header = () => {
   const [toggleProfile, setToggleProfile] = useState(false);
   return (
     <>
-      <header className=" tw-sticky tw-top-0  tw-flex tw-items-center tw-justify-end tw-gap-4 tw-bg-[#FFFFFF] tw-px-8 tw-py-4">
+      <header className=" tw-sticky tw-top-0  tw-z-10 tw-flex tw-items-center tw-justify-end tw-gap-4 tw-bg-[#FFFFFF] tw-px-8 tw-py-4">
         <img
           className="tw-size-8 tw-rounded-full  tw-border"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_India.png/800px-Flag_of_India.png?20230815162632"

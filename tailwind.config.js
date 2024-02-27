@@ -12,6 +12,7 @@ export default {
         primaryColor: "#8F8AFF",
         secondaryColor: "#FFA11D", // Example of a complementary color
         tertiaryColor: "#C1C1FF",
+        // tertiaryColorDull: #c1c1ff6b,
         highLight: "#09C2DE",
         // Example of a lighter shade of the primary color
         // mainTextColor: "#333333", /

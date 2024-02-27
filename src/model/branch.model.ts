@@ -35,7 +35,7 @@ export interface Content {
   updatedDate: string;
   hotelTypeID: any[];
   branchEmployeeMaps: any[];
-  description: null;
+  description: string|null;
   action:null
 }
 

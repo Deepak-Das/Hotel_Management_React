@@ -1,4 +1,4 @@
-import { BranchModel } from "../model/branch.model";
+import { BranchModel, Content } from "../model/branch.model";
 import axios from "./axios";
 
 export const getAllBranch = async (
@@ -11,4 +11,14 @@ export const getAllBranch = async (
   );
   console.log(branches.data);
   return branches.data;
+};
+export const saveBranch = async (
+ data:Content
+) => {
+  const save = await axios.post<Content>(
+    `/branches`,
+    data
+  );
+  console.log(save.data);
+  return save.data;
 };

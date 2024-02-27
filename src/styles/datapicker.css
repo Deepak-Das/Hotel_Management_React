@@ -1,0 +1,33 @@
+.data-picker {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.data-picker input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.data-picker input:focus {
+  border-color: blue;
+}
+
+.placeholder-label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #aaa;
+  font-size: 16px;
+  transition: top 0.3s, font-size 0.3s, color 0.3s;
+}
+
+.data-picker.focused .placeholder-label,
+.data-picker input:focus + .placeholder-label {
+  top: -20px;
+  font-size: 12px;
+  color: blue;
+}

@@ -75,20 +75,16 @@ const TableComp = ({
   });
 
   if (isLoading) {
-    return (
-      <Loading/>
-    );
+    return <Loading />;
   } else if (isError) {
-    return (
-      <Error errorMsg={errorMsg}/>
-    );
+    return <Error errorMsg={errorMsg} />;
   }
 
   return (
-    <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-bg-white">
-      <div className="   tw-p-4">
-        <div className=" tw-h-full tw-overflow-x-auto tw-rounded-t-lg tw-border ">
-          <table className="rtl:tw-text-right">
+    <div className=" tw-flex tw-flex-col tw-items-center tw-justify-center  tw-bg-white">
+      <div className="tw-h-full tw-w-full    tw-p-4">
+        <div className=" tw-flex tw-w-full tw-overflow-auto  marker:tw-justify-center">
+          <table className="tw-border rtl:tw-text-right">
             <thead className="tw-uppercase">
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr
