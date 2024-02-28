@@ -1,21 +1,22 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
 import { saveBranch } from "../services/branch.service";
-import { Content } from "../model/branch.model";
+import { useState } from "react";
 
 export const useSaveBranch = <T extends Record<string, any>>() => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<T>();
+  const form = useForm<T>();
 
-  const createBranch=useMutation({
-    mutationFn: saveBranch
-  })
+  const { reset, ...createBranch } = useMutation({
+    mutationKey: ["saveBranch"],
+    mutationFn: saveBranch,
+  });
 
-  return { register, handleSubmit, errors, ...createBranch };
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  return {
+    ...form,
+    ...createBranch,
+    showSuccessMessage,
+    setShowSuccessMessage,
+  };
 };
-
-
-

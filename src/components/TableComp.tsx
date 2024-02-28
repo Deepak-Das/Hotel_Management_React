@@ -82,13 +82,13 @@ const TableComp = ({
 
   return (
     <div className=" tw-flex tw-flex-col tw-items-center tw-justify-center  tw-bg-white">
-      <div className="tw-h-full tw-w-full    tw-p-4">
+      <div className="tw-h-[80vh] tw-overflow-auto    tw-p-4">
         <div className=" tw-flex tw-w-full tw-overflow-auto  marker:tw-justify-center">
           <table className="tw-border rtl:tw-text-right">
             <thead className="tw-uppercase">
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr
-                  className="tw-bg-indigo-400
+                  className="tw-bg-indigo-300
                 "
                   key={headerGroup.id}
                 >

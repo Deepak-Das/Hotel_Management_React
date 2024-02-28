@@ -1,12 +1,22 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 interface Props {
   title: string;
+  type?: string;
+  fieldName: string;
+  value?: string;
+  errors: FieldErrors<FieldErrors | any>;
+  register: UseFormRegister<FieldValues | any>;
 }
 
-const CustomDatePicker = ({ title }: Props) => {
+const CustomDatePicker = ({
+  title,
+  fieldName,
+  register,
+}: Props) => {
   const [date, setDate] = useState<Date | null>(null);
   const [isFilled, setIsFilled] = useState(!!date);
 
@@ -23,6 +33,7 @@ const CustomDatePicker = ({ title }: Props) => {
         onChange={handleDateChange}
         customInput={
           <input
+            {...register(fieldName)}
             type="text"
             className={` " tw-w-[300px] tw-p-[.16rem] tw-text-[0.9rem]   tw-outline-none ${isFilled ? "tw-border-b-2 tw-border-primaryColor  tw-bg-indigo-100" : "tw-border-b tw-border-textColor "}`}
             required

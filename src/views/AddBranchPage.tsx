@@ -4,31 +4,36 @@ import TextField from "../components/TextField";
 import UplodImgButton from "../components/UplodImgButton";
 import "../styles/addBranch.scss";
 import CustomDatePicker from "../components/CustomDatePicker";
-import {
-  useForm,
-  SubmitHandler,
-  FieldValues,
-  FieldError,
-} from "react-hook-form";
-import { BranchModel, Content } from "../model/branch.model";
+import { SubmitHandler } from "react-hook-form";
+import { Content } from "../model/branch.model";
 import { useSaveBranch } from "../hook/useSaveBranch";
-import { isPending } from "@reduxjs/toolkit";
 import Spinner from "../common/Spinner";
+import { InfoMsg } from "../common/InfoMsg";
 
 const AddBranchPage = () => {
   const {
     register,
     handleSubmit,
-    errors,
+    formState: { errors },
+    reset,
     isPending,
     isError,
     isSuccess,
+    showSuccessMessage,
+    setShowSuccessMessage,
     mutate,
     data,
   } = useSaveBranch<Content>();
-  const onSubmit: SubmitHandler<Content> = (data) => {
-    const save = mutate(data);
-    console.log(save);
+
+  const onSubmit: SubmitHandler<Content> = async (data) => {
+    const save = await mutate(data);
+    if (isSuccess) {
+      reset();
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 10000);
+    }
   };
 
   if (isPending) {
@@ -36,7 +41,12 @@ const AddBranchPage = () => {
   }
 
   return (
-    <div className="tw-w-full tw-bg-white tw-p-4">
+    <div className="container tw-w-full tw-bg-white tw-p-4">
+      {showSuccessMessage && (
+        <div>
+          <InfoMsg alertTitle="Success Submited!" alertInfo="👍" />;
+        </div>
+      )}
       <h4>Add Branch</h4>
       <div className="tw-mb-4 tw-flex tw-w-full tw-gap-2 tw-border-b-2 tw-pb-3 ">
         <UplodImgButton />
@@ -91,7 +101,12 @@ const AddBranchPage = () => {
           title="Support email Id"
         />
 
-        <CustomDatePicker title="created Date" />
+        <CustomDatePicker
+          fieldName="createDate"
+          errors={errors}
+          register={register}
+          title="created Date"
+        />
 
         <SelectField />
         <div className="tw-w-full"></div>
@@ -115,10 +130,11 @@ const AddBranchPage = () => {
 
         <div className="tw-flex tw-w-full tw-justify-center">
           <button
+            disabled={isPending}
             type="submit"
             className="tw-rounded-md tw-bg-primaryColor tw-p-1 tw-text-sm tw-font-normal tw-text-white tw-transition-all tw-duration-75 tw-ease-out hover:tw-scale-105"
           >
-            Submit
+            {isPending ? "Loding" : "Submit"}
           </button>
         </div>
       </form>
